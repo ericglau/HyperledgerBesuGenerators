@@ -5,17 +5,59 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>EtherWaterloo_Group</name>
   
-  
-  
-  
-  
-  
   <dependencies> 
-  <dependency>
-    <groupId>junit</groupId>
-    <artifactId>junit</artifactId>
-    <version>4.12</version>
-  </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+    </dependency>
+    <dependency>
+      <groupId>org.web3j</groupId>
+      <artifactId>core</artifactId>
+      <version>4.5.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.web3j</groupId>
+      <artifactId>besu</artifactId>
+      <version>4.5.5</version>
+    </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+        <plugin>
+          <groupId>org.web3j</groupId>
+          <artifactId>web3j-maven-plugin</artifactId>
+          <version>4.2.0</version>
+          <configuration>
+            <soliditySourceFiles/>
+          </configuration>
+          <executions>
+            <execution>
+              <id>generate-sources</id>
+              <phase>prepare-package</phase>
+              <goals>
+                <goal>generate-sources</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.1.0</version>
+          <configuration>
+            <filesets>
+              <fileset>
+                <directory>src/main/java/org/web3j/model</directory>
+                <includes>
+                  <include>**/*.java</include>
+                </includes>
+                <followSymlinks>false</followSymlinks>
+              </fileset>
+            </filesets>
+          </configuration>
+        </plugin>
+    </plugins>
+</build>
   
 </project>
