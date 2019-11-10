@@ -10,6 +10,7 @@ import org.web3j.protocol.core.methods.response.Web3ClientVersion;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.tx.gas.ContractGasProvider;
 import org.web3j.tx.gas.DefaultGasProvider;
+import org.web3j.tx.gas.StaticGasProvider;
 
 public class App {
 	public static void main(String[] args) throws Exception {
@@ -22,7 +23,9 @@ public class App {
         System.out.println("Connected to Hyperledger Besu: " + clientVersion);
 
         Credentials credentials = Credentials.create("3585f81ae906512e3d28219e8fc62192661b13e7a15aa9bb9e2853ef8d9a2819");
-        ContractGasProvider contractGasProvider = new DefaultGasProvider();
+        ContractGasProvider contractGasProvider = new StaticGasProvider(BigInteger.valueOf(0), new BigInteger("1fffffffffffff",16));
+
+        System.out.println("Created gas provider: " + contractGasProvider.toString());
 
         HelloWorld contract = HelloWorld.deploy(web3j, credentials, contractGasProvider, "deploy").send();
         System.out.println("Deployed contract: " + contract.getContractAddress());
