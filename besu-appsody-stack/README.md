@@ -1,9 +1,13 @@
-# Sample Stack
+# Hyperledger Besu Apposody Stack
 
-Readme explaining in detail about this stack
+[Appsody](https://appsody.dev/) stack for developers writing apps for Hyperledger Besu.
 
-Explain the stack and each template that is part of the stack
+## Build stack
+`appsody stack package`
 
-- How can a user start using this pack for application development
+## Initialize sample project
+From an empty directory:
+`appsody init dev.local/besu-appsody-stack`
 
-- links to getting started guides etc.
+## Run development stack
+`appsody run`
