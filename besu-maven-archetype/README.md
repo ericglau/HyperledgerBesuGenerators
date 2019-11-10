@@ -1,5 +1,9 @@
 # Hyperledger Besu Maven Archetype
 
+Prerequisites:
+* [JDK 8 or higher](https://adoptopenjdk.net/)
+* [Maven](https://maven.apache.org/install.html)
+
 ## Installing the archetype
 
 1. Clone this project.  
