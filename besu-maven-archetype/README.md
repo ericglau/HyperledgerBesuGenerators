@@ -1,11 +1,14 @@
 # Hyperledger Besu Maven Archetype
 
 ## Installing the archetype
-1. Clone this project.
+
+1. Clone this project.  
+
 2. From the project directory:  
 `mvn install`
 
 ## Using the archetype to create a sample project
+
 1. From any directory on your filesystem:  
 `mvn archetype:generate -DarchetypeCatalog=local`
 
