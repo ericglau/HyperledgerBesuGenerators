@@ -22,7 +22,7 @@ Prerequisites:
 
 This builds the project, runs Besu in the background, and starts your app.
 
-`mvn clean install && target/besu-1.3.4/bin/besu --config-file=config.toml > logfile.log tail -f -n0 logfile.log | grep -q 'Ethereum main loop is up' && mvn exec:java -Dexec.mainClass="com.sample.App"`
+`mvn clean install && target/besu-1.3.4/bin/besu --config-file=config.toml > logfile.log 2>&1 & tail -f -n0 logfile.log | grep -q 'Ethereum main loop is up' && mvn exec:java -Dexec.mainClass="com.sample.App"`
 
 ### Or multiple commands 
 
