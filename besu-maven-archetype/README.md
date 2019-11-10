@@ -18,11 +18,15 @@ Prerequisites:
 
 ## Running the sample project
 
-1. Compile contracts, build project, and install Hyperledger Besu:  
+1. Have two terminals open in the sample project.
+
+2. In the first terminal, run the following to compile contracts, build project, and install Hyperledger Besu:  
 `mvn clean install`
 
-2. Run Hyperledger Besu:  
+3. In the second terminal, run the following to start Hyperledger Besu:  
 `target/besu-1.3.4/bin/besu --config-file=config.toml`
 
-3. Compile and run your application:  
+4. Wait until you see `Ethereum main loop is up`
+
+5. In the first terminal, run the following to compile and start your application:  
 `mvn compile exec:java -Dexec.mainClass="com.sample.App"`
