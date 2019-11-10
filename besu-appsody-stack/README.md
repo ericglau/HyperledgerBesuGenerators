@@ -1,6 +1,10 @@
 # Hyperledger Besu Apposody Stack
 
-[Appsody](https://appsody.dev/) stack for developers writing apps for Hyperledger Besu.
+[Appsody](https://appsody.dev/) stack for developers writing apps on Hyperledger Besu.
+
+## Prerequisites
+* [Docker](https://www.docker.com/)
+* [Appsody](https://appsody.dev/)
 
 ## Build stack
 `appsody stack package`
