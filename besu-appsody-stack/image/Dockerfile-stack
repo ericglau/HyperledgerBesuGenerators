@@ -2,6 +2,21 @@
 
 #See https://appsody.dev/docs/stacks/environment-variables for more information about each variable.
 
+FROM adoptopenjdk/openjdk8-openj9
+
+USER root
+RUN  apt-get -qq update \
+  && apt-get -qq install -y curl maven xmlstarlet wget \
+  && DEBIAN_FRONTEND=noninteractive apt-get -qq upgrade -y \
+  && apt-get -qq clean \
+  && rm -rf /tmp/* /var/lib/apt/lists/*
+
+COPY ./LICENSE /licenses/
+COPY ./project /project
+COPY ./config /config
+
+WORKDIR /project/user-app
+
 ENV APPSODY_MOUNTS="~/.m2/repository:/mvn/repository;src:/project/user-app/src;pom.xml:/project/user-app/pom.xml;config.toml:/project/user-app/config.toml"
 
 ENV APPSODY_WATCH_DIR=/project/user-app
@@ -14,10 +29,10 @@ ENV APPSODY_RUN="mvn -B -Dmaven.repo.local=/mvn/repository exec:java -Dexec.main
 ENV APPSODY_RUN_ON_CHANGE="mvn -B -Dmaven.repo.local=/mvn/repository compile exec:java -Dexec.mainClass="com.sample.App""
 ENV APPSODY_RUN_KILL=false
 
-ENV APPSODY_DEBUG= #Command executed in 'debug' mode
-ENV APPSODY_DEBUG_ON_CHANGE= #Command executed in 'debug' mode when a change is detected.
-ENV APPSODY_DEBUG_KILL= #Signals whether to kill the server process before starting the ON_CHANGE action.
+ENV APPSODY_DEBUG=
+ENV APPSODY_DEBUG_ON_CHANGE=
+ENV APPSODY_DEBUG_KILL=
 
-ENV APPSODY_TEST= #Command executed in 'test' mode
-ENV APPSODY_TEST_ON_CHANGE= #Command executed in 'test' mode when a change is detected.
-ENV APPSODY_TEST_KILL= #Signals whether to kill the server process before starting the ON_CHANGE action.
+ENV APPSODY_TEST=
+ENV APPSODY_TEST_ON_CHANGE=
+ENV APPSODY_TEST_KILL=
