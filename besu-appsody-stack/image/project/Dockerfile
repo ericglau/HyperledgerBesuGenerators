@@ -1,5 +1,5 @@
 # Dockerfile for building your application. Defines the final image that contains content from both the image and template.
-FROM adoptopenjdk/openjdk8-openj9
+FROM adoptopenjdk/openjdk11-openj9
 
 RUN apt-get update && \
     apt-get install -y maven unzip wget xmlstarlet
