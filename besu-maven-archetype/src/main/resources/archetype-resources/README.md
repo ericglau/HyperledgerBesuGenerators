@@ -1,16 +1,14 @@
-# BesuGenerator
+# Hyperledger Besu sample project
 
-Build sample project, including compiling contracts and installing Hyperledger Besu: `mvn clean install`
+## Running the sample project
 
-Build archetype: `mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-archetype -DarchetypeVersion=1.4`
+1. Compile contracts, build project, and install Hyperledger Besu:  
+`mvn clean install`
 
-Run Hyperledger Besu:
+2. Start Hyperledger Besu:  
 `target/besu-1.3.4/bin/besu --config-file=config.toml`
 
-If the above command doesn't work due to a genesis block issue, run `rm -rf target/besu-1.3.4/database/` and try the above again.
+3. Wait until you see `Ethereum main loop is up`
 
-Run class:
-`mvn exec:java -Dexec.mainClass="com.sample.App"`
-
-Recompile and run class:
+4. From another terminal at your sample project directory, compile and start your application:  
 `mvn compile exec:java -Dexec.mainClass="com.sample.App"`
