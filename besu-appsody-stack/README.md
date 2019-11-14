@@ -1,4 +1,4 @@
-# Hyperledger Besu Apposody Stack
+# Hyperledger Besu Appsody Stack
 
 [Appsody](https://appsody.dev/) stack for developers writing apps on Hyperledger Besu.
 
