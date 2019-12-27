@@ -1,4 +1,4 @@
-# Hyperledger Besu Appsody Stack
+# Hyperledger Besu Appsody Stack with Maven
 
 [Appsody](https://appsody.dev/) stack for developers writing apps on Hyperledger Besu.
 
@@ -13,7 +13,7 @@ Developers can initialize a sample project with a single command, and use anothe
 
 ## Initialize sample project
 From an empty directory:
-`appsody init dev.local/besu-appsody-stack`
+`appsody init dev.local/java-besu-maven`
 
 ## Run development stack
 `appsody run`

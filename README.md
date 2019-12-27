@@ -6,6 +6,6 @@ This project contains two generators that make it easy for developers to start d
 
 Maven archetype for generating a sample project.
 
-## [besu-appsody-stack](besu-appsody-stack)
+## [besu-appsody-stacks](besu-appsody-stacks)
 
-Appsody stack for generating a sample project while keeping the entire runtime on a container.
+Appsody stacks for generating a sample project while keeping the entire runtime on a container.
