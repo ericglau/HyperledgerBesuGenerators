@@ -1,6 +1,6 @@
 # Hyperledger Besu Generators
 
-This project contains two generators that make it easy for developers to start developing apps on Hyperledger Besu.
+This project contains two generators that make it easy for developers to start developing Java apps with Hyperledger Besu.
 
 ## [besu-appsody-stacks](besu-appsody-stacks)
 

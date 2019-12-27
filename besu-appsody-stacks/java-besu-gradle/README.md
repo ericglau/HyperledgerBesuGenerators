@@ -1,6 +1,6 @@
 # Hyperledger Besu Appsody Stack with Gradle
 
-[Appsody](https://appsody.dev/) stack for developers writing apps on Hyperledger Besu.
+[Appsody](https://appsody.dev/) stack for developers writing Java apps with Hyperledger Besu.
 
 Developers can initialize a sample project with a single command, and use another command start their development runtime entirely on a container.
 
