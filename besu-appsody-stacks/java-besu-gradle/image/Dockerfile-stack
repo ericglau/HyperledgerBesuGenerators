@@ -1,0 +1,38 @@
+# Dockerfile for building the stack
+
+#See https://appsody.dev/docs/stacks/environment-variables for more information about each variable.
+
+FROM adoptopenjdk/openjdk11-openj9
+
+USER root
+RUN  apt-get -qq update \
+  && apt-get -qq install -y curl xmlstarlet wget \
+  && DEBIAN_FRONTEND=noninteractive apt-get -qq upgrade -y \
+  && apt-get -qq clean \
+  && rm -rf /tmp/* /var/lib/apt/lists/*
+
+COPY ./LICENSE /licenses/
+COPY ./project /project
+COPY ./config /config
+
+WORKDIR /project/user-app
+
+ENV APPSODY_MOUNTS="~/.gradle:/gradle;src:/project/user-app/src;build.gradle:/project/user-app/build.gradle;config.toml:/project/user-app/config.toml;gradlew:/project/user-app/gradlew;gradle:/project/user-app/gradle"
+
+ENV APPSODY_WATCH_DIR=/project/user-app
+ENV APPSODY_WATCH_IGNORE_DIR=/project/user-app/target
+ENV APPSODY_WATCH_REGEX="^.*(.sol|.java)$"
+
+ENV APPSODY_INSTALL="touch logfile.log ; /project/user-app/gradlew --gradle-user-home=/gradle --console=plain build installBesu && echo 'Starting Hyperledger Besu...' && build/besu-1.3.8/bin/besu --config-file=config.toml 2>&1 | tee logfile.log & tail -f -n0 logfile.log | grep -q 'Ethereum main loop is up'"
+
+ENV APPSODY_RUN="/project/user-app/gradlew --gradle-user-home=/gradle --console=plain run"
+ENV APPSODY_RUN_ON_CHANGE=
+ENV APPSODY_RUN_KILL=false
+
+ENV APPSODY_DEBUG=
+ENV APPSODY_DEBUG_ON_CHANGE=
+ENV APPSODY_DEBUG_KILL=
+
+ENV APPSODY_TEST=
+ENV APPSODY_TEST_ON_CHANGE=
+ENV APPSODY_TEST_KILL=
