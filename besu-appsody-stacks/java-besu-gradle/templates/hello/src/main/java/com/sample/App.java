@@ -5,7 +5,7 @@ import java.math.BigInteger;
 
 import org.web3j.crypto.Credentials;
 import org.web3j.crypto.ECKeyPair;
-import org.web3j.model.HelloWorld;
+import org.web3j.helloworld.HelloWorld;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.core.methods.response.Web3ClientVersion;

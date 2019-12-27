@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'org.web3j'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.web3j:web3j-gradle-plugin:4.5.8'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+    implementation 'org.web3j:core:4.5.8'
+    implementation 'org.web3j:besu:4.5.8'
+}
