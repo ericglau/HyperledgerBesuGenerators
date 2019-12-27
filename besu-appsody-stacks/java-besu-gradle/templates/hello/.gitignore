@@ -2,5 +2,5 @@
 .project
 .settings/
 .vscode/
-target/
-src/main/java/org/web3j/model
+.gradle/
+build/
