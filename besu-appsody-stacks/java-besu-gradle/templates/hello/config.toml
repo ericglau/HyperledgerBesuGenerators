@@ -1,0 +1,15 @@
+# Hyperledger Besu config file
+
+# Network
+network="dev"
+
+# Enable RPC
+rpc-http-enabled=true
+rpc-ws-enabled=true
+
+# Minimum gas price
+min-gas-price=0
+
+# Enable mining
+miner-enabled=true
+miner-coinbase="0xD254c71075AA9caB58916affd043D3d86c8d832f"
