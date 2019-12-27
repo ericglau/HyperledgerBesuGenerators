@@ -18,7 +18,7 @@ import org.web3j.tx.gas.DefaultGasProvider;
 import org.web3j.tx.gas.StaticGasProvider;
 
 public class App {
-
+        /** Note: Do NOT use this private key anywhere other than for demo purposes. */
         private static final String PRIVATE_KEY = "3585f81ae906512e3d28219e8fc62192661b13e7a15aa9bb9e2853ef8d9a2819";
         private final static BigInteger GAS_AMOUNT = BigInteger.valueOf(0);
         private final static BigInteger GAS_LIMIT = new BigInteger("1fffffffffffff", 16);
