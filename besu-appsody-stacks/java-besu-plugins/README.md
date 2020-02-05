@@ -19,4 +19,4 @@ From an empty directory:
 `appsody run`
 
 ## Iterative development
-Any changes you make to Java files or build.gradle will be automatically redeployed to the container within seconds.
+Any changes you make to Java files or build.gradle will be automatically redeployed to the container within seconds.  When the sample project is running, simply refresh http://localhost:9545/metrics to see the updated results after you make code changes.
