@@ -6,7 +6,7 @@ pruning-enabled=false
 
 data-path="data/goerli"
 
-host-whitelist=["*"]
+host-whitelist=["127.0.0.1", "localhost"]
 
 metrics-enabled=true
 metrics-host="0.0.0.0"
