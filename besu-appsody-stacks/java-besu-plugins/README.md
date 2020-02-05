@@ -17,3 +17,6 @@ From an empty directory:
 
 ## Run development stack
 `appsody run`
+
+## Iterative development
+Any changes you make to Java files or build.gradle will be automatically redeployed to the container within seconds.
