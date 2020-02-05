@@ -1,0 +1,51 @@
+// Modified from https://github.com/PegaSysEng/PluginsAPIDemo
+
+apply plugin: 'application'
+apply plugin: 'java'
+
+group 'tech.pegasys.besu.plugins.demo'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+repositories {
+    ivy {
+        url 'https://bintray.com/api/ui/download'
+        layout 'pattern', {
+            artifact '/[organisation]/[module]/[revision].[ext]'
+        }
+    }
+    jcenter()
+    maven { url 'https://hyperledger-org.bintray.com/besu-repo' }
+    mavenCentral()
+}
+
+dependencies {
+    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc4'
+
+    compileOnly 'com.google.auto.service:auto-service:1.0-rc4'
+    compileOnly 'info.picocli:picocli:3.9.5'
+    compileOnly 'org.apache.logging.log4j:log4j-api:2.12.0'
+    compileOnly 'org.apache.logging.log4j:log4j-core:2.12.0'
+    compileOnly 'org.hyperledger.besu:plugin-api:1.4.0-beta3-SNAPSHOT'
+
+    testImplementation 'junit:junit:4.12'
+}
+
+task installBesu(type: Copy) {
+    def dependency = project.dependencies.create('hyperledger-org:besu-repo:besu-1.4.0-beta3@zip')
+    def config = project.configurations.detachedConfiguration(dependency)
+
+    File resolvedFile;
+    config.resolvedConfiguration.resolvedArtifacts.each { artifact ->
+        File artifactFile = artifact.file
+        resolvedFile = artifactFile
+    }
+    
+    println resolvedFile
+    def zipFile = file(resolvedFile)
+    def outputDir = file("${buildDir}")
+
+    from zipTree(zipFile)
+    into outputDir
+}
