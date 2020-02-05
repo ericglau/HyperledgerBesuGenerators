@@ -6,10 +6,10 @@ pruning-enabled=false
 
 data-path="data/goerli"
 
-host-whitelist=["127.0.0.1", "localhost"]
+host-whitelist=["*"]
 
 metrics-enabled=true
-metrics-host="127.0.0.1"
+metrics-host="0.0.0.0"
 metrics-port=9545
 
 #This is the custom registered category
