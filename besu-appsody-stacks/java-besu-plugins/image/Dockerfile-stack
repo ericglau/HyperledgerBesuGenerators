@@ -1,0 +1,47 @@
+# Dockerfile for building the stack
+
+#See https://appsody.dev/docs/stacks/environment-variables for more information about each variable.
+
+FROM adoptopenjdk/openjdk11-openj9
+
+USER root
+RUN  apt-get -qq update \
+  && apt-get -qq install -y curl xmlstarlet wget \
+  && DEBIAN_FRONTEND=noninteractive apt-get -qq upgrade -y \
+  && apt-get -qq clean \
+  && rm -rf /tmp/* /var/lib/apt/lists/*
+
+COPY ./LICENSE /licenses/
+COPY ./project /project
+COPY ./config /config
+
+WORKDIR /project/user-app
+
+ENV APPSODY_MOUNTS="~/.gradle:/gradle;src:/project/user-app/src;build.gradle:/project/user-app/build.gradle;settings.gradle:/project/user-app/settings.gradle;demo-options.toml:/project/user-app/demo-options.toml;gradlew:/project/user-app/gradlew;gradle:/project/user-app/gradle"
+
+ENV APPSODY_WATCH_DIR=/project/user-app
+ENV APPSODY_WATCH_IGNORE_DIR=/project/user-app/target
+ENV APPSODY_WATCH_REGEX="^(build.gradle|.*(.java))$"
+
+# Install Besu before each command
+ENV APPSODY_PREP="/project/user-app/gradlew --gradle-user-home=/gradle --console=plain installBesu"
+
+# Run: Build project, create plugins directory, copy jar to plugins directory, start Besu
+ENV APPSODY_RUN="/project/user-app/gradlew --gradle-user-home=/gradle --console=plain build && mkdir build/besu-1.4.0-beta3/plugins && cp build/libs/*.jar build/besu-1.4.0-beta3/plugins && build/besu-1.4.0-beta3/bin/besu --config-file=demo-options.toml"
+# On source change: Build project, copy jar to plugins directory, start Besu
+ENV APPSODY_RUN_ON_CHANGE="/project/user-app/gradlew --gradle-user-home=/gradle --console=plain build && cp build/libs/*.jar build/besu-1.4.0-beta3/plugins && build/besu-1.4.0-beta3/bin/besu --config-file=demo-options.toml"
+ENV APPSODY_RUN_KILL=true
+
+ENV APPSODY_DEBUG=
+ENV APPSODY_DEBUG_ON_CHANGE=
+ENV APPSODY_DEBUG_KILL=
+
+ENV APPSODY_TEST=
+ENV APPSODY_TEST_ON_CHANGE=
+ENV APPSODY_TEST_KILL=
+
+EXPOSE 9545
+EXPOSE 9001
+EXPOSE 30303
+EXPOSE 8545
+EXPOSE 8546

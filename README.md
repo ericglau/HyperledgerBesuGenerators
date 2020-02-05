@@ -4,7 +4,7 @@ This project contains two generators that make it easy for developers to start d
 
 ## [besu-appsody-stacks](besu-appsody-stacks)
 
-Appsody stacks for generating a sample Gradle or Maven project using Besu while keeping the entire runtime in a container.
+Appsody stacks for generating various sample projects using Besu while keeping the entire runtime in a container.
 
 ## [besu-maven-archetype](besu-maven-archetype)
 

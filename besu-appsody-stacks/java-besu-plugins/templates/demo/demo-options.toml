@@ -1,0 +1,17 @@
+# Plugin Demo Options
+network="goerli"
+sync-mode="fast"
+fast-sync-min-peers=1
+pruning-enabled=false
+
+data-path="data/goerli"
+
+host-whitelist=["127.0.0.1", "localhost"]
+
+metrics-enabled=true
+# Modified from https://github.com/PegaSysEng/PluginsAPIDemo to enable metrics-host address within container
+metrics-host="0.0.0.0"
+metrics-port=9545
+
+#This is the custom registered category
+metrics-categories=["GAS_SPENDING_METRICS"]
