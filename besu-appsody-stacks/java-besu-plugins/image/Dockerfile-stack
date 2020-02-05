@@ -26,10 +26,10 @@ ENV APPSODY_WATCH_REGEX="^(build.gradle|.*(.java))$"
 # Install Besu before each command
 ENV APPSODY_PREP="/project/user-app/gradlew --gradle-user-home=/gradle --console=plain installBesu"
 
-# Run: Build project, copy jar to plugins directory, start Besu
-ENV APPSODY_RUN="/project/user-app/gradlew --gradle-user-home=/gradle --console=plain build && cp build/libs/*.jar build/besu-1.4.0-beta3/plugins && build/besu-1.4.0-beta3/bin/besu --config-file=config.toml"
+# Run: Build project, create plugins directory, copy jar to plugins directory, start Besu
+ENV APPSODY_RUN="/project/user-app/gradlew --gradle-user-home=/gradle --console=plain build && mkdir build/besu-1.4.0-beta3/plugins && cp build/libs/*.jar build/besu-1.4.0-beta3/plugins && build/besu-1.4.0-beta3/bin/besu --config-file=demo-options.toml"
 # On source change: Build project, copy jar to plugins directory, start Besu
-ENV APPSODY_RUN_ON_CHANGE="/project/user-app/gradlew --gradle-user-home=/gradle --console=plain build && cp build/libs/*.jar build/besu-1.4.0-beta3/plugins && build/besu-1.4.0-beta3/bin/besu --config-file=config.toml"
+ENV APPSODY_RUN_ON_CHANGE="/project/user-app/gradlew --gradle-user-home=/gradle --console=plain build && cp build/libs/*.jar build/besu-1.4.0-beta3/plugins && build/besu-1.4.0-beta3/bin/besu --config-file=demo-options.toml"
 ENV APPSODY_RUN_KILL=true
 
 ENV APPSODY_DEBUG=

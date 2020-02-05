@@ -1,6 +1,5 @@
 // Modified from https://github.com/PegaSysEng/PluginsAPIDemo
 
-apply plugin: 'application'
 apply plugin: 'java'
 
 group 'tech.pegasys.besu.plugins.demo'
