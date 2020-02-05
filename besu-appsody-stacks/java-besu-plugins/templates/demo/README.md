@@ -1,5 +1,7 @@
 # Besu Plugins API Demo Plugin
 
+This sample project is modified from https://github.com/PegaSysEng/PluginsAPIDemo
+
 ## Purpose of the Demo Plugin
 Expose finer grain details about the gas usage in blocks via Prometheus
 
@@ -20,7 +22,19 @@ Expose finer grain details about the gas usage in blocks via Prometheus
   * Disconnect from the Besu events
 
 
-## To Execute the Demo
+## To Execute the Demo in a Container with Iterative Development
+
+If this project was initialized from Appsody, run the stack
+```
+appsody run
+```
+
+Then go to http://localhost:9545/metrics to see the metrics.
+
+Any changes you make to Java files or build.gradle will be automatically redeployed to the container within seconds.  Refresh http://localhost:9545/metrics to see your updates.
+
+
+## To Execute the Demo Locally
 
 Build the plugin jar
 ```
