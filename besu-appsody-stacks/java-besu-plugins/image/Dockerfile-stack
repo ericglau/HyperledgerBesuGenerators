@@ -17,7 +17,7 @@ COPY ./config /config
 
 WORKDIR /project/user-app
 
-ENV APPSODY_MOUNTS="~/.gradle:/gradle;src:/project/user-app/src;build.gradle:/project/user-app/build.gradle;demo-options.toml:/project/user-app/demo-options.toml;gradlew:/project/user-app/gradlew;gradle:/project/user-app/gradle"
+ENV APPSODY_MOUNTS="~/.gradle:/gradle;src:/project/user-app/src;build.gradle:/project/user-app/build.gradle;settings.gradle:/project/user-app/settings.gradle;demo-options.toml:/project/user-app/demo-options.toml;gradlew:/project/user-app/gradlew;gradle:/project/user-app/gradle"
 
 ENV APPSODY_WATCH_DIR=/project/user-app
 ENV APPSODY_WATCH_IGNORE_DIR=/project/user-app/target
@@ -39,8 +39,6 @@ ENV APPSODY_DEBUG_KILL=
 ENV APPSODY_TEST=
 ENV APPSODY_TEST_ON_CHANGE=
 ENV APPSODY_TEST_KILL=
-
-ENV PORT=9545
 
 EXPOSE 9545
 EXPOSE 9001
