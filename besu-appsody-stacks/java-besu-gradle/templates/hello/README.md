@@ -6,7 +6,7 @@
 `gradle clean build installBesu`
 
 2. Start Hyperledger Besu:  
-`build/besu-1.3.8/bin/besu --config-file=config.toml`
+`build/besu-1.4.0/bin/besu --config-file=config.toml`
 
 3. Wait until you see `Ethereum main loop is up`
 
