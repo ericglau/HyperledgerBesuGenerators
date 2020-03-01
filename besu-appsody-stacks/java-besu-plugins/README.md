@@ -1,6 +1,6 @@
 # Appsody Stack for Hyperledger Besu Plugins
 
-[Appsody](https://appsody.dev/) stack for developers writing Java plugins using the Hyperledger Besu Plugins API.
+[Appsody](https://appsody.dev/) stack for developers writing Java plugins using the [Hyperledger Besu Plugin API](https://besu.hyperledger.org/en/stable/Reference/Plugin-API-Interfaces/).
 
 Developers can initialize a sample project based on [PluginsAPIDemo](https://github.com/PegaSysEng/PluginsAPIDemo) with a single command, and use another command to start their development runtime entirely on a container.  Once the project is running, iterative development is enabled which will update the plugin when source changes are detected.
 
