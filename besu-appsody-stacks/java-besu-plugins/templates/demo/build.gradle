@@ -26,13 +26,13 @@ dependencies {
     compileOnly 'info.picocli:picocli:3.9.5'
     compileOnly 'org.apache.logging.log4j:log4j-api:2.12.0'
     compileOnly 'org.apache.logging.log4j:log4j-core:2.12.0'
-    compileOnly 'org.hyperledger.besu:plugin-api:1.4.0-beta3-SNAPSHOT'
+    compileOnly 'org.hyperledger.besu:plugin-api:1.4.0'
 
     testImplementation 'junit:junit:4.12'
 }
 
 task installBesu(type: Copy) {
-    def dependency = project.dependencies.create('hyperledger-org:besu-repo:besu-1.4.0-beta3@zip')
+    def dependency = project.dependencies.create('hyperledger-org:besu-repo:besu-1.4.0@zip')
     def config = project.configurations.detachedConfiguration(dependency)
 
     File resolvedFile;

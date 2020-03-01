@@ -6,7 +6,7 @@
 `mvn clean install`
 
 2. Start Hyperledger Besu:  
-`target/besu-1.3.8/bin/besu --config-file=config.toml`
+`target/besu-1.4.0/bin/besu --config-file=config.toml`
 
 3. Wait until you see `Ethereum main loop is up`
 
