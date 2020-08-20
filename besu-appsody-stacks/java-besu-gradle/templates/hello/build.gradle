@@ -42,7 +42,7 @@ application {
 }
 
 task installBesu(type: Copy) {
-    def dependency = project.dependencies.create('hyperledger-org:besu-repo:besu-1.4.0@zip')
+    def dependency = project.dependencies.create('hyperledger-org:besu-repo:besu-1.5.0@zip')
     def config = project.configurations.detachedConfiguration(dependency)
 
     File resolvedFile;

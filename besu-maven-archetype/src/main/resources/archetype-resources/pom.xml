@@ -75,7 +75,7 @@
                 <goal>wget</goal>
               </goals>
               <configuration>
-                <url>https://bintray.com/api/ui/download/hyperledger-org/besu-repo/besu-1.4.0.zip</url>
+                <url>https://bintray.com/api/ui/download/hyperledger-org/besu-repo/besu-1.5.0.zip</url>
                 <unpack>true</unpack>
               </configuration>
             </execution>

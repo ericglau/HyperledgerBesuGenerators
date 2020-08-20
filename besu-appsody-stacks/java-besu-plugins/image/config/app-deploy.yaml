@@ -4,7 +4,7 @@
 
 apiVersion: appsody.dev/v1beta1
 kind: AppsodyApplication
-metadata: 
+metadata:
   name: APPSODY_PROJECT_NAME
 spec:
   version: 1.0.0

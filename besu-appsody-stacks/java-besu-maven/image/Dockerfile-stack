@@ -23,7 +23,7 @@ ENV APPSODY_WATCH_DIR=/project/user-app
 ENV APPSODY_WATCH_IGNORE_DIR=/project/user-app/target
 ENV APPSODY_WATCH_REGEX="^.*(.sol|.java)$"
 
-ENV APPSODY_INSTALL="touch logfile.log ; mvn -B -Dmaven.repo.local=/mvn/repository install -DskipTests && echo 'Starting Hyperledger Besu...' && target/besu-1.4.0/bin/besu --config-file=config.toml 2>&1 | tee logfile.log & tail -f -n0 logfile.log | grep -q 'Ethereum main loop is up'"
+ENV APPSODY_INSTALL="touch logfile.log ; mvn -B -Dmaven.repo.local=/mvn/repository install -DskipTests && echo 'Starting Hyperledger Besu...' && target/besu-1.5.0/bin/besu --config-file=config.toml 2>&1 | tee logfile.log & tail -f -n0 logfile.log | grep -q 'Ethereum main loop is up'"
 
 ENV APPSODY_RUN="mvn -B -Dmaven.repo.local=/mvn/repository exec:java -Dexec.mainClass='com.sample.App'"
 ENV APPSODY_RUN_ON_CHANGE=
